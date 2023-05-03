@@ -5,8 +5,8 @@
 Flutter SQFLITE CRUD Operations
 
 <p float="left">
-  <img src="tree/master/screen/img1.png" width="400" />
-  <img src="tree/master/screen/img2.png" width="400" />
-  <img src="tree/master/screen/img3.png" width="400" />
-  <img src="tree/master/screen/img4.png" width="400" />
+  <img src="app/src/main/res/screen/img1.png" width="400" />
+  <img src="app/src/main/res/screen/img2.png" width="400" />
+  <img src="app/src/main/res/screen/img3.png" width="400" />
+  <img src="app/src/main/res/screen/img4.png" width="400" />
 </p>
