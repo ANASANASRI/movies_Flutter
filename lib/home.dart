@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movies_tp/SQLDB.dart';
+import 'package:movies_tp/UpdateMovie.dart';
+
+import 'DeleteMovie.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -20,6 +23,14 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          Navigator.of(context).pushNamed("AddMovie");
+        },
+        child: Icon(Icons.add),
+      ),
+
       appBar: AppBar(
         title: const Text("Home"),
       ),
@@ -76,7 +87,11 @@ class _HomeState extends State<Home> {
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
                                         TextButton(
-                                            onPressed: (){},
+                                            onPressed: (){
+                                              Navigator.of(context).push(
+                                                MaterialPageRoute(builder: (context)=>UpdateMovie(id:listMovies[index]['id'],titre:listMovies[index]['titre'],duree:listMovies[index]['duree']))
+                                              );
+                                            },
 
                                             style: ButtonStyle(
                                               shape: MaterialStateProperty.all(
@@ -90,7 +105,27 @@ class _HomeState extends State<Home> {
                                             child: Icon(Icons.edit,color: Colors.green,)),
                                         SizedBox(width: 8),
                                         TextButton(
-                                            onPressed: (){},
+                                            onPressed: (){
+                                              showDialog(
+                                                  context: context,
+                                                  builder: (context)=>AlertDialog(
+                                                      title: Text("Are you sure you want to delete ${listMovies[index]['titre']}"),
+                                                      actions: [
+                                                        ElevatedButton(onPressed: () async{
+                                                          int req = await sqLdb.deleteData("DELETE FROM 'movies' WHERE id = ${listMovies[index]['id']}");
+                                                          if(req>0){
+                                                            Navigator.of(context).pop();
+                                                            setState(() {
+
+                                                            });
+                                                          }
+                                                        }, child: Text("Yes")),
+                                                        ElevatedButton(onPressed: (){
+                                                          Navigator.of(context).pop();
+                                                        }, child: Text("No")),
+                                                      ],
+                                                  ));
+                                                  },
 
                                             style: ButtonStyle(
                                               shape: MaterialStateProperty.all(

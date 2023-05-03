@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movies_tp/AddMovie.dart';
 import 'package:movies_tp/home.dart';
 
 void main() {
@@ -13,6 +14,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Movies',
       home: const Home(),
+      routes: {
+        "AddMovie":(context)=>AddMovie()
+      },
     );
   }
 }
