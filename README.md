@@ -4,7 +4,9 @@
 
 Flutter SQFLITE CRUD Operations
 
-![Image 1](android/app/src/screen/img1.png)
-![Image 2](android/app/src/screen/img2.png)
-![Image 3](android/app/src/screen/img3.png)
-![Image 4](android/app/src/screen/img4.png)
+<p float="left">
+  <img src="app/src/main/res/screen/img1.png" width="400" />
+  <img src="app/src/main/res/screen/img2.png" width="400" />
+  <img src="app/src/main/res/screen/img3.png" width="400" />
+  <img src="app/src/main/res/screen/img4.png" width="400" />
+</p>
